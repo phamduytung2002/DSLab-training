@@ -2,10 +2,11 @@ from constants import MAX_DOC_LENGTH, unknown_ID, padding_ID
 
 def encode_data(data_path, vocab_path):
     with open(vocab_path) as f:
-        vocab = dict([(word, word_ID+2) for word_ID, word in enumerate(f.read().splitlines())])
+        vocab = dict([(word, word_ID+2) 
+                      for word_ID, word in enumerate(f.read().splitlines())])
     with open(data_path) as f:
-        documents = [(line.split('<fff>')[0], line.split('<fff>')[1], line.split('<fff>')[2])\
-            for line in f.read().splitlines()]
+        documents = [(line.split('<fff>')[0], line.split('<fff>')[1], line.split('<fff>')[2])
+                     for line in f.read().splitlines()]
             
     encoded_data = []
     current_label = -1

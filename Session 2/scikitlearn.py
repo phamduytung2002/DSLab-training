@@ -13,9 +13,9 @@ def load_data(data_path):
             r_d[index] = tfidf
         return np.array(r_d)
 
-    with open(data_path) as f:
+    with open(data_path, encoding='unicode_escape') as f:
         d_lines = f.read().splitlines()
-    with open('Session 1\TF-IDF Vectorizer\\20news-bydate\words_idfs.txt') as f:
+    with open('Session 1/TF-IDF Vectorizer/20news-bydate/words_idfs.txt', encoding='unicode_escape') as f:
         vocab_size = len(f.read().splitlines())
 
     data = []
@@ -29,7 +29,7 @@ def load_data(data_path):
     return data, labels
 
 def clustering_with_KMeans():
-    data, labels = load_data(data_path='Session 1\TF-IDF Vectorizer\\20news-bydate\\tf-idf.txt')
+    data, labels = load_data(data_path='Session 1/TF-IDF Vectorizer/20news-bydate/full_tf-idf.txt')
     X = csr_matrix(data)
     print('='*20)
     kmeans = KMeans(
@@ -48,7 +48,7 @@ def compute_accuracy(predicted_y, expected_y):
     return accuracy
 
 def classifying_with_linear_SVMs():
-    train_X, train_y = load_data('Session 1\TF-IDF Vectorizer\\20news-bydate\\train_tf-idf.txt')
+    train_X, train_y = load_data('Session 1/TF-IDF Vectorizer/20news-bydate/train_tf-idf.txt')
     train_X, train_y = np.array(train_X), np.array(train_y)
     classifier = LinearSVC(
         C=10.0, # penalty coefficient
@@ -56,14 +56,14 @@ def classifying_with_linear_SVMs():
         verbose=False # whether prints out logs or not
     )
     classifier.fit(train_X, train_y)
-    test_X, test_y = load_data('Session 1\TF-IDF Vectorizer\\20news-bydate\\test_tf-idf.txt')
+    test_X, test_y = load_data('Session 1/TF-IDF Vectorizer/20news-bydate/test_tf-idf.txt')
     test_X, test_y = np.array(test_X), np.array(test_y)
     predicted_y = classifier.predict(test_X)
     accuracy = compute_accuracy(predicted_y = predicted_y, expected_y = test_y)
     print(f'Accuracy: {accuracy}')
 
 def classifying_with_kernel_SVMs():
-    train_X, train_y = load_data('Session 1\TF-IDF Vectorizer\\20news-bydate\\train_tf-idf.txt')
+    train_X, train_y = load_data('Session 1/TF-IDF Vectorizer/20news-bydate/train_tf-idf.txt')
     train_X, train_y = np.array(train_X), np.array(train_y)
     classifier = SVC(
         C = 50.0, # penalty coefficient
@@ -73,11 +73,11 @@ def classifying_with_kernel_SVMs():
         verbose = True # whether prints out logs or not
     )
     classifier.fit(train_X, train_y)
-    test_X, test_y = load_data('Session 1\TF-IDF Vectorizer\\20news-bydate\\test_tf-idf.txt')
+    test_X, test_y = load_data('Session 1/TF-IDF Vectorizer/20news-bydate/test_tf-idf.txt')
     test_X, test_y = np.array(test_X), np.array(test_y)
     predicted_y = classifier.predict(test_X)
     accuracy = compute_accuracy(predicted_y = predicted_y, expected_y = test_y)
     print(f'Accuracy: {accuracy}')
 
 if __name__=='__main__':
-    classifying_with_kernel_SVMs()
+    classifying_with_linear_SVMs()
