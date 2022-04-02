@@ -30,15 +30,11 @@ def encode_data(data_path, vocab_path):
                 encoded_text.append(f'{padding_ID}')
         encoded_data.append(f'{label}<fff>{doc_id}<fff>{sentence_length}<fff>'\
              + ' '.join(encoded_text))
-    dir_name = '/'.join(data_path.split('/')[:-1])
-    file_name = '-'.join(data_path.split('/')[-1].split('-')[:-1]) + 'encoded.txt'
-    with open(f'{dir_name}'+file_name, 'w') as f:
-        f.write('\n'.join(encoded_data))
 
     dir_name = '/'.join(data_path.split('/')[:-1])
     file_name = '-'.join(data_path.split('/')[-1].split('-')[:-1]) + '-encoded.txt'
     with open(f'{dir_name}/{file_name}', 'w') as f:
         f.write('\n'.join(encoded_data))
 
-encode_data('w2v/20news-train-raw.txt', 'w2v/vocab-raw.txt')
-encode_data('w2v/20news-test-raw.txt', 'w2v/vocab-raw.txt')
+encode_data('Session 4/w2v/20news-train-raw.txt', 'Session 4/w2v/vocab-raw.txt')
+encode_data('Session 4/w2v/20news-test-raw.txt', 'Session 4/w2v/vocab-raw.txt')

@@ -38,7 +38,7 @@ class Kmeans():
 
         with open(data_path) as f:
             d_lines = f.read().splitlines()
-        with open('Session 1\TF-IDF Vectorizer\\20news-bydate\words_idfs.txt') as f:
+        with open('Session 1/TF-IDF Vectorizer/data/words_idfs.txt') as f:
             vocab_size = len(f.read().splitlines())
 
         self._data = []
@@ -140,7 +140,9 @@ class Kmeans():
 
 if __name__=='__main__':
     Km = Kmeans(num_clusters=5)
-    Km.load_data('Session 1\TF-IDF Vectorizer\\20news-bydate\\tf-idf.txt')
+    Km.load_data('Session 1/TF-IDF Vectorizer/data/full-tf-idf.txt')
     Km.run(seed_value = 42, criterion='similarity', threshold=20)
-    print(f'purity: {Km.compute_purity()}')
-    print(f'NMI: {Km.compute_NMI()}')
+    with open('Session 2/result.txt', 'w') as f:
+        f.write(f'KMeans from scratch:\n')
+        f.write(f'purity: {Km.compute_purity()}\n')
+        f.write(f'NMI: {Km.compute_NMI()}\n')

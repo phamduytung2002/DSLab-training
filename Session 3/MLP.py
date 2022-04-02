@@ -91,12 +91,12 @@ class DataReader:
 
 def load_dataset():
     train_data_reader = DataReader(
-        data_path = 'Session 1\TF-IDF Vectorizer\\20news-bydate\\train_tf-idf.txt',
+        data_path = 'Session 1/TF-IDF Vectorizer/data/train-tf-idf.txt',
         batch_size = 50,
         vocab_size = vocab_size
     )
     test_data_reader = DataReader(
-        data_path = 'Session 1\TF-IDF Vectorizer\\20news-bydate\\test_tf-idf.txt',
+        data_path = 'Session 1/TF-IDF Vectorizer/data/test-tf-idf.txt',
         batch_size = 50,
         vocab_size = vocab_size
     )
@@ -109,12 +109,12 @@ def save_parameters(name, value, epoch):
     else:
         string_form = '\n'.join([','.join([str(number) for number in value[row]]) for row in range(value.shape[0])])
 
-    with open('Session 3\saved-paras\\' + filename, 'w') as f:
+    with open('Session 3/saved-paras/' + filename, 'w') as f:
         f.write(string_form)
 
 def restore_parameters(name, epoch):
     filename = name.replace(':', '-colon-') + '-epoch-{}.txt'.format(epoch)
-    with open("Session 3\saved-paras\\" + filename) as f:
+    with open("Session 3/saved-paras/" + filename) as f:
         lines = f.read().splitlines()
     if len(lines)==1:
         value = [float(number) for number in lines[0].split(',')]
@@ -124,7 +124,7 @@ def restore_parameters(name, epoch):
 
 if __name__ == '__main__':
     tf.disable_v2_behavior()
-    with open('Session 1\TF-IDF Vectorizer\\20news-bydate\words_idfs.txt') as f:
+    with open('Session 1/TF-IDF Vectorizer/data/words_idfs.txt') as f:
         vocab_size = len(f.read().splitlines())
 
     mlp = MLP(vocab_size=vocab_size, hidden_size=50)
@@ -136,17 +136,18 @@ if __name__ == '__main__':
         step, MAX_STEP = 0, 1000
 
         sess.run(tf.global_variables_initializer())
-        while step < MAX_STEP:
-            train_data, train_labels = train_data_reader.next_batch()
-            plabels_eval, loss_eval, _ = sess.run(
-                [predicted_labels, loss, train_op],
-                feed_dict = {
-                    mlp._X: train_data,
-                    mlp._real_Y: train_labels
-                }
-            )
-            step += 1
-            print(f'step:{step}, loss:{loss_eval}')
+        with open('Session 3/log.txt', 'a') as f:
+            while step < MAX_STEP:
+                train_data, train_labels = train_data_reader.next_batch()
+                plabels_eval, loss_eval, _ = sess.run(
+                    [predicted_labels, loss, train_op],
+                    feed_dict = {
+                        mlp._X: train_data,
+                        mlp._real_Y: train_labels
+                    }
+                )
+                step += 1
+                f.write(f'step:{step}, loss:{loss_eval}\n')
         
         trainable_variables = tf.trainable_variables()
         for variable in trainable_variables:
@@ -157,7 +158,7 @@ if __name__ == '__main__':
             )
         
     test_data_reader = DataReader(
-        data_path = 'Session 1\TF-IDF Vectorizer\\20news-bydate\\test_tf-idf.txt',
+        data_path = 'Session 1/TF-IDF Vectorizer/data/test-tf-idf.txt',
         batch_size = 50,
         vocab_size = vocab_size
     )
@@ -182,5 +183,6 @@ if __name__ == '__main__':
             num_true_preds += np.sum(matches.astype(float))
             if test_data_reader._batch_id == 0:
                 break
-        print(f'Epoch: {epoch}')
-        print(f'Accuracy on test data: {num_true_preds/len(test_data_reader._data)}')
+        with open('Session 3/log.txt', 'a') as f:
+            f.write(f'Epoch: {epoch}\n')
+            f.write(f'Accuracy on test data: {num_true_preds/len(test_data_reader._data)}\n')

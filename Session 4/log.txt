@@ -1,0 +1,100 @@
+epoch 0
+Loss on test data: 1.8591731786727905, accuracy on test data: 0.4231279790401459
+epoch 1
+Loss on test data: 1.3644615411758423, accuracy on test data: 0.5953266024589539
+epoch 2
+Loss on test data: 1.327778697013855, accuracy on test data: 0.6322357654571533
+epoch 3
+Loss on test data: 1.4075274467468262, accuracy on test data: 0.6469728946685791
+epoch 4
+Loss on test data: 1.527888536453247, accuracy on test data: 0.6392724514007568
+epoch 5
+Loss on test data: 1.5512083768844604, accuracy on test data: 0.657328724861145
+epoch 6
+Loss on test data: 1.654723048210144, accuracy on test data: 0.647371232509613
+epoch 7
+Loss on test data: 1.734789490699768, accuracy on test data: 0.6481677889823914
+epoch 8
+Loss on test data: 1.7271090745925903, accuracy on test data: 0.6623739004135132
+epoch 9
+Loss on test data: 1.7292815446853638, accuracy on test data: 0.6626393795013428
+epoch 10
+Loss on test data: 1.9200917482376099, accuracy on test data: 0.6343600749969482
+epoch 11
+Loss on test data: 2.1781959533691406, accuracy on test data: 0.563329815864563
+epoch 12
+Loss on test data: 1.9637696743011475, accuracy on test data: 0.5934678912162781
+epoch 13
+Loss on test data: 1.8749122619628906, accuracy on test data: 0.6099309325218201
+epoch 14
+Loss on test data: 1.9300391674041748, accuracy on test data: 0.6164365410804749
+epoch 15
+Loss on test data: 1.9273803234100342, accuracy on test data: 0.6234731674194336
+epoch 16
+Loss on test data: 2.0143110752105713, accuracy on test data: 0.6240042448043823
+epoch 17
+Loss on test data: 2.0389435291290283, accuracy on test data: 0.6340945363044739
+epoch 18
+Loss on test data: 2.081855297088623, accuracy on test data: 0.636218786239624
+epoch 19
+Loss on test data: 2.1210052967071533, accuracy on test data: 0.6325013041496277
+epoch 20
+Loss on test data: 2.116903305053711, accuracy on test data: 0.6375464797019958
+epoch 21
+Loss on test data: 2.1229708194732666, accuracy on test data: 0.6402018070220947
+epoch 22
+Loss on test data: 2.137995958328247, accuracy on test data: 0.6388741135597229
+epoch 23
+Loss on test data: 2.156113386154175, accuracy on test data: 0.6408656239509583
+epoch 24
+Loss on test data: 2.1688907146453857, accuracy on test data: 0.6411311626434326
+epoch 25
+Loss on test data: 2.1818249225616455, accuracy on test data: 0.6409984230995178
+epoch 26
+Loss on test data: 2.195478677749634, accuracy on test data: 0.6424588561058044
+epoch 27
+Loss on test data: 2.221522808074951, accuracy on test data: 0.6432554721832275
+epoch 28
+Loss on test data: 2.2374744415283203, accuracy on test data: 0.6403345465660095
+epoch 29
+Loss on test data: 2.261040449142456, accuracy on test data: 0.6380775570869446
+epoch 30
+Loss on test data: 2.2586262226104736, accuracy on test data: 0.6415295004844666
+epoch 31
+Loss on test data: 2.298312187194824, accuracy on test data: 0.6378120183944702
+epoch 32
+Loss on test data: 2.302790641784668, accuracy on test data: 0.636617124080658
+epoch 33
+Loss on test data: 2.814831018447876, accuracy on test data: 0.5424854159355164
+epoch 34
+Loss on test data: 2.597121477127075, accuracy on test data: 0.44768986105918884
+epoch 35
+Loss on test data: 2.2971630096435547, accuracy on test data: 0.49561870098114014
+epoch 36
+Loss on test data: 2.245008945465088, accuracy on test data: 0.5167286396026611
+epoch 37
+Loss on test data: 2.2376327514648438, accuracy on test data: 0.5253584980964661
+epoch 38
+Loss on test data: 2.294609308242798, accuracy on test data: 0.5318640470504761
+epoch 39
+Loss on test data: 2.3616297245025635, accuracy on test data: 0.5317313075065613
+epoch 40
+Loss on test data: 2.392561197280884, accuracy on test data: 0.5391662120819092
+epoch 41
+Loss on test data: 2.46573805809021, accuracy on test data: 0.5343866348266602
+epoch 42
+Loss on test data: 2.541461706161499, accuracy on test data: 0.5396972894668579
+epoch 43
+Loss on test data: 2.60247802734375, accuracy on test data: 0.535315990447998
+epoch 44
+Loss on test data: 2.7116482257843018, accuracy on test data: 0.532793402671814
+epoch 45
+Loss on test data: 2.780522108078003, accuracy on test data: 0.5286776423454285
+epoch 46
+Loss on test data: 2.8351633548736572, accuracy on test data: 0.5305363535881042
+epoch 47
+Loss on test data: 2.9319069385528564, accuracy on test data: 0.5280138254165649
+epoch 48
+Loss on test data: 3.0419185161590576, accuracy on test data: 0.5107541084289551
+epoch 49
+Loss on test data: 3.0311102867126465, accuracy on test data: 0.5037174820899963

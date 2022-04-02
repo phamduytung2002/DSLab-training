@@ -1,0 +1,7 @@
+KMeans from scratch:
+purity: 0.20391595033428844
+NMI: 0.12870827076008626
+Sklearn linear SVM:
+Accuracy: 0.8272703133297928
+Sklearn kernel SVM:
+Accuracy: 0.8242166755177908

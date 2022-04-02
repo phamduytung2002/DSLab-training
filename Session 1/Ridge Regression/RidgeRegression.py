@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import KFold
+from datetime import datetime
 
 class RidgeRegression:
     def __init__(self):
@@ -71,7 +72,7 @@ def normalizeAndAddOnes(X):
     return np.column_stack((ones,X_normalized))
 
 if __name__=="__main__":
-    data = pd.read_csv("x28.csv", delimiter='\s+')
+    data = pd.read_csv("datasets/x28.csv", delimiter='\s+')
     data = data.iloc[:, 1:].values
     data = normalizeAndAddOnes(data)
     X_train, X_test = data[:50, :-1], data[50:, :-1]
@@ -83,5 +84,7 @@ if __name__=="__main__":
     # W = LR.fit(X_train, Y_train, LAMBDA)
     W = LR.fitGrad(X_train, Y_train, LAMBDA, 0.001, maxEpochs = 5000)
     Y_pred = LR.predict(W, X_test)
-    print("Best LAMBDA: ", LAMBDA)
-    print("RSS: ", LR.computeRSS(Y_pred, Y_test))
+    with open("Session 1/Ridge Regression/result.txt", "w") as f:
+        f.write(f'{datetime.now()}\n')
+        f.write(f'Best LAMBDA: {LAMBDA}\n')
+        f.write(f'RSS: {LR.computeRSS(Y_pred, Y_test)}')
